@@ -90,12 +90,10 @@ export var App = () => {
                 : handleAddTask
             }
             style={{
-              width: 127,
               height: 58,
               contain: 'layout',
               backgroundColor: 'rgb(255, 164, 164, 1)',
               position: 'absolute',
-              left: 122,
               top: 68,
             }}
           >

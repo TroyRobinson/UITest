@@ -33,3 +33,10 @@ body, #canvas-container * {
         height: 215px
     }   
 }
+
+@media (max-width: 700px) {
+    button {
+        width: 100%;
+        position: relative;
+    }
+}
