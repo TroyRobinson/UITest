@@ -7,11 +7,16 @@ export var App = () => {
   const [tasks, setTasks] = React.useState([])
   const [taskInput, setTaskInput] = React.useState('')
   const [editIndex, setEditIndex] = React.useState(null)
+  const [taskCounts, setTaskCounts] = React.useState({})
 
   const handleAddTask = () => {
     if (taskInput.trim() !== '') {
       setTasks([...tasks, taskInput])
       setTaskInput('')
+      setTaskCounts((prevCounts) => ({
+        ...prevCounts,
+        [taskInput]: (prevCounts[taskInput] || 0) + 1,
+      }))
     }
   }
 
@@ -108,6 +113,19 @@ export var App = () => {
                 </button>
                 <button onClick={() => handleDeleteTask(index)}>Delete</button>
               </div>
+            </div>
+          ))}
+        </div>
+        <div
+          style={{
+            width: '100%',
+            marginTop: 20,
+          }}
+        >
+          <h3>Task Statistics</h3>
+          {Object.entries(taskCounts).map(([task, count]) => (
+            <div key={task}>
+              <span>{task}: {count}</span>
             </div>
           ))}
         </div>
