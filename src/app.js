@@ -144,18 +144,20 @@ export var App = () => {
             </div>
           ))}
         </div>
-        <div
-          style={{
-            width: '100%',
-            marginTop: 20,
-          }}
-        >
+        <div style={{ width: '100%', marginTop: 20 }}>
           <h3>Task Statistics</h3>
-          {Object.entries(taskCounts).map(([task, count]) => (
-            <div key={task}>
-              <span>{task}: {count}</span>
-            </div>
-          ))}
+          {Object.entries(taskCounts).map(
+            ([task, count]) => (
+              <div
+                key={task}
+                style={{ fontSize: '12px', height: 29 }}
+              >
+                <span style={{ height: 'max-content' }}>
+                  {task}: {count}
+                </span>
+              </div>
+            ),
+          )}
         </div>
       </div>
     </FlexCol>
