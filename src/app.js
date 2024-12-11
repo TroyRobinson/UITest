@@ -49,43 +49,55 @@ export var App = () => {
       <div
         style={{
           contain: 'layout',
-          width: 'max-content',
+          width: 371,
           height: 'max-content',
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
           justifyContent: 'flex-start',
+          gap: 22,
         }}
       >
-        <span>Todo App</span>
-        <input
-          type="text"
-          value={taskInput}
-          onChange={(e) => setTaskInput(e.target.value)}
-          placeholder="Enter a task"
-          style={{
-            width: 200,
-            height: 30,
-            marginBottom: 10,
-          }}
-        />
-        <button
-          onClick={editIndex !== null ? handleSaveEdit : handleAddTask}
-          style={{
-            width: 130,
-            height: 58,
-            contain: 'layout',
-            backgroundColor: 'rgb(255, 164, 164, 1)',
-          }}
-        >
-          {editIndex !== null ? 'Save Edit' : 'Add Task'}
-        </button>
+        <span style={{ fontSize: '32px' }}>Todo App</span>
         <div
           style={{
+            contain: 'layout',
             width: '100%',
-            marginTop: 20,
+            height: 126,
           }}
         >
+          <input
+            type='text'
+            value={taskInput}
+            onChange={(e) => setTaskInput(e.target.value)}
+            placeholder='Enter a task'
+            style={{
+              width: '100%',
+              height: 42,
+              position: 'absolute',
+              top: 1,
+            }}
+          />
+          <button
+            onClick={
+              editIndex !== null
+                ? handleSaveEdit
+                : handleAddTask
+            }
+            style={{
+              width: 127,
+              height: 58,
+              contain: 'layout',
+              backgroundColor: 'rgb(255, 164, 164, 1)',
+              position: 'absolute',
+              left: 122,
+              top: 68,
+            }}
+          >
+            {editIndex !== null ? 'Save Edit' : 'Add Task'}
+          </button>
+        </div>
+        <div style={{ width: '100%', marginTop: 20 }}>
           {tasks.map((task, index) => (
             <div
               key={index}
@@ -94,19 +106,35 @@ export var App = () => {
                 justifyContent: 'space-between',
                 alignItems: 'center',
                 marginBottom: 10,
+                backgroundColor: '#d3d3d3',
+                height: 'max-content',
+                padding: '12px 11px',
               }}
             >
-              <span>{task}</span>
+              <span
+                style={{
+                  fontWeight: 700,
+                  fontStyle: 'normal',
+                }}
+              >
+                {task}
+              </span>
               <div>
                 <button
                   onClick={() => handleEditTask(index)}
-                  style={{
-                    marginRight: 10,
-                  }}
+                  style={{ marginRight: 10 }}
                 >
                   Edit
                 </button>
-                <button onClick={() => handleDeleteTask(index)}>Delete</button>
+                <button
+                  onClick={() => handleDeleteTask(index)}
+                  style={{
+                    backgroundColor:
+                      'rgb(255, 183, 183, 1)',
+                  }}
+                >
+                  Delete
+                </button>
               </div>
             </div>
           ))}
