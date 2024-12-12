@@ -2,10 +2,11 @@ import * as React from 'react'
 import { View } from 'utopia-api'
 import '../public/globals.css'
 import { Group } from 'utopia-api'
+import { Box, Text, Image } from '@radix-ui/react'
 
 export var Playground = ({ style }) => {
   return (
-    <div
+    <Box
       style={{
         height: '100%',
         width: '100%',
@@ -13,7 +14,7 @@ export var Playground = ({ style }) => {
         ...style,
       }}
     >
-      <div
+      <Box
         style={{
           position: 'absolute',
           left: 159,
@@ -25,7 +26,7 @@ export var Playground = ({ style }) => {
           width: 'max-content',
         }}
       >
-        <span
+        <Text
           style={{
             wordBreak: 'break-word',
             height: 19,
@@ -34,8 +35,8 @@ export var Playground = ({ style }) => {
           }}
         >
           TItle of Test
-        </span>
-        <div
+        </Text>
+        <Box
           style={{
             contain: 'layout',
             width: 'max-content',
@@ -47,23 +48,23 @@ export var Playground = ({ style }) => {
             justifyContent: 'flex-start',
           }}
         >
-          <img
+          <Image
             src='https://github.com/concrete-utopia/utopia/blob/master/editor/resources/editor/pyramid_fullsize@2x.png?raw=true'
             alt='Utopia logo'
             style={{ width: 118, height: 150 }}
           />
-          <img
+          <Image
             src='https://github.com/concrete-utopia/utopia/blob/master/editor/resources/editor/pyramid_fullsize@2x.png?raw=true'
             alt='Utopia logo'
             style={{ width: 118, height: 150 }}
           />
-          <img
+          <Image
             src='https://github.com/concrete-utopia/utopia/blob/master/editor/resources/editor/pyramid_fullsize@2x.png?raw=true'
             alt='Utopia logo'
             style={{ width: 118, height: 150 }}
           />
-        </div>
-      </div>
-    </div>
+        </Box>
+      </Box>
+    </Box>
   )
 }

@@ -2,6 +2,7 @@ import * as React from 'react'
 import '../public/globals.css'
 import { FlexCol } from './utils'
 import { Group } from 'utopia-api'
+import { Button, Input, Text, Box } from '@radix-ui/react'
 
 export var App = () => {
   const [tasks, setTasks] = React.useState([])
@@ -51,7 +52,7 @@ export var App = () => {
         flexDirection: 'row',
       }}
     >
-      <div
+      <Box
         style={{
           contain: 'layout',
           width: 371,
@@ -63,15 +64,15 @@ export var App = () => {
           gap: 22,
         }}
       >
-        <span style={{ fontSize: '32px' }}>Todo App</span>
-        <div
+        <Text style={{ fontSize: '32px' }}>Todo App</Text>
+        <Box
           style={{
             contain: 'layout',
             width: '100%',
             height: 126,
           }}
         >
-          <input
+          <Input
             type='text'
             value={taskInput}
             onChange={(e) => setTaskInput(e.target.value)}
@@ -83,7 +84,7 @@ export var App = () => {
               top: 1,
             }}
           />
-          <button
+          <Button
             onClick={
               editIndex !== null
                 ? handleSaveEdit
@@ -98,11 +99,11 @@ export var App = () => {
             }}
           >
             {editIndex !== null ? 'Save Edit' : 'Add Task'}
-          </button>
-        </div>
-        <div style={{ width: '100%', marginTop: 20 }}>
+          </Button>
+        </Box>
+        <Box style={{ width: '100%', marginTop: 20 }}>
           {tasks.map((task, index) => (
-            <div
+            <Box
               key={index}
               style={{
                 display: 'flex',
@@ -114,22 +115,22 @@ export var App = () => {
                 padding: '12px 11px',
               }}
             >
-              <span
+              <Text
                 style={{
                   fontWeight: 700,
                   fontStyle: 'normal',
                 }}
               >
                 {task}
-              </span>
-              <div>
-                <button
+              </Text>
+              <Box>
+                <Button
                   onClick={() => handleEditTask(index)}
                   style={{ marginRight: 10 }}
                 >
                   Edit
-                </button>
-                <button
+                </Button>
+                <Button
                   onClick={() => handleDeleteTask(index)}
                   style={{
                     backgroundColor:
@@ -137,27 +138,27 @@ export var App = () => {
                   }}
                 >
                   Delete
-                </button>
-              </div>
-            </div>
+                </Button>
+              </Box>
+            </Box>
           ))}
-        </div>
-        <div style={{ width: '100%', marginTop: 20 }}>
-          <h3>Task Statistics</h3>
+        </Box>
+        <Box style={{ width: '100%', marginTop: 20 }}>
+          <Text>Task Statistics</Text>
           {Object.entries(taskCounts).map(
             ([task, count]) => (
-              <div
+              <Box
                 key={task}
                 style={{ fontSize: '12px', height: 29 }}
               >
-                <span style={{ height: 'max-content' }}>
+                <Text style={{ height: 'max-content' }}>
                   {task}: {count}
-                </span>
-              </div>
+                </Text>
+              </Box>
             ),
           )}
-        </div>
-      </div>
+        </Box>
+      </Box>
     </FlexCol>
   )
 }
